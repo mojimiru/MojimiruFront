@@ -33,7 +33,7 @@
     fonts.forEach( (fontname,index) => {
       const display = displays[index]
       display.style.color = "gray"
-      const fontURL = `http://mojimiru.pythonanywhere.com?font=${fontname}&text=${encodeURIComponent(unloaded_letters.join(''))}`
+      const fontURL = `https://mojimiru.pythonanywhere.com?font=${fontname}&text=${encodeURIComponent(unloaded_letters.join(''))}`
       const fontFace = new FontFace(
         fontname,
         `url(${fontURL})`
