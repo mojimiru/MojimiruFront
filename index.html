@@ -1,0 +1,51 @@
+<body>
+  <label for="name">Text:</label>
+  <input type="text" id="text" name="text" required size="10" onchange="refleshfont()" value="ためしがき">
+  <p id="kaisotai_next" style="font-size: 50px;"></p>
+  <p id="marukoias_alpha" style="font-size: 50px;"></p>
+</body>
+<script>
+  document.body.style.fontFamily = '"testfont"';
+
+  let letters = new Set()
+  const fonts = ["kaisotai_next","marukoias_alpha"]
+  const displays = fonts.map( fontname => document.getElementById(fontname))
+
+  displays.forEach((display,index) => {
+    display.style.fontFamily = fonts[index]
+    display.textContent = "ためしがき"
+  })
+
+  function refleshfont(){
+    const text = document.getElementById("text").value;
+    
+    displays.forEach( display => {
+      display.textContent = text
+    })
+
+    const new_letters = new Set(text);
+    const unloaded_letters = [...new_letters].filter(c => (!letters.has(c)));
+    
+    if (unloaded_letters.length === 0){ return }
+    
+    letters = new Set([...letters,...unloaded_letters])
+    
+    fonts.forEach( (fontname,index) => {
+      const display = displays[index]
+      display.style.color = "gray"
+      const fontURL = `http://mojimiru.pythonanywhere.com?font=${fontname}&text=${encodeURIComponent(unloaded_letters.join(''))}`
+      const fontFace = new FontFace(
+        fontname,
+        `url(${fontURL})`
+        );
+        fontFace.load().then(loadedFace => {
+          document.fonts.add(loadedFace);
+          display.style.color = "black"
+        }).catch( e => {
+          display.style.color = "black"
+          console.error(e);
+        });
+    })
+  }
+  refleshfont()
+</script>
