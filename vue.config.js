@@ -1,4 +1,4 @@
 module.exports = {
-  publicPath: '/mojimiru/',
+  publicPath: '/MojimiruFront',
   outputDir: 'docs'
 }
