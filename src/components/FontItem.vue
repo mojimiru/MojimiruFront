@@ -4,20 +4,27 @@ import { defineProps, defineExpose } from 'vue'
 const props = defineProps<{
   content: string,
   fontId: string;
+  fontName: string;
+  width: number;
+  height: number;
 }>()
 
 const color = ref('black')
+const fontsize = ref(30)
+// let span:HTMLElement | null = null
 
 const reflesh = (charsURI: string) => {
   color.value = 'gray'
+  console.log('fontsize.value')
   const fontURL = `https://mojimiru.pythonanywhere.com?font=${props.fontId}&text=${charsURI}`
   const fontFace = new FontFace(
     props.fontId,
     `url(${fontURL})`
   )
   fontFace.load().then(loadedFace => {
-    console.log(loadedFace.family)
     document.fonts.add(loadedFace)
+    document.fonts.values()
+    console.log(fontsize.value)
     color.value = 'black'
   }).catch(e => {
     color.value = 'black'
@@ -26,8 +33,29 @@ const reflesh = (charsURI: string) => {
 }
 
 defineExpose({ reflesh })
+
+// onMounted(() => { span = document.getElementById(props.fontId) })
 </script>
 
 <template>
-  <p :id="fontId" :style="`font-size: 50px; color:${color}; font-family: ${fontId}`">{{ content }}</p>
+  <v-card class="d-flex flex-column align-center" height="100%">
+    <v-card-title class="pt-0 pb-0 mb-0">
+      <!-- <v-spacer/> -->
+      <p>
+        <pre :id="fontId" class="pt-4" :style="`line-height:1; white-space: pre-wrap; font-size: ${fontsize}px; color:${color}; font-family: '${fontId}'`">{{ content }}</pre>
+      </p>
+      <!-- <v-spacer/> -->
+    </v-card-title>
+    <v-spacer/>
+    <v-card-text class="text-caption align-self-end d-flex flex-column pt-1 pb-1" style="bottom: 0">
+      <v-spacer/>
+      {{fontName}}
+    </v-card-text>
+  </v-card>
 </template>
+
+<style>
+pre{
+  font-family:serif;
+}
+</style>
