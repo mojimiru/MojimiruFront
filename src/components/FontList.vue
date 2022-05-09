@@ -32,7 +32,7 @@ const includes = (index:number) => selectedTags.value.every((tags, i) => !tags.l
 </script>
 
 <template>
-  <v-container fluid>
+  <v-container fluid @click="()=>{}">
     <v-textarea
     label="試したい単語/文章を入力"
     v-model="activeContent"
