@@ -1,0 +1,154 @@
+{
+  "$schema": "fonts.schema.json",
+  "types": {
+    "ttf": "TTF",
+    "otf": "OTF"
+  },
+  "letters": {
+    "hira": "ひらがな",
+    "kata": "カタカナ",
+    "kata_half": "ｶﾀｶﾅ",
+    "kanji": "漢字",
+    "jis1": "JIS第1水準",
+    "jis2": "JIS第2水準",
+    "alphabet": "ABC",
+    "alphabet_full": "ＡＢＣ",
+    "number": "123",
+    "number_full": "１２３"
+  },
+  "tags": [
+    {
+      "sans_serif": "ゴシック",
+      "serif": "明朝",
+      "typos": "タイポス",
+      "cursive": "筆記体",
+      "fantasy": "アート",
+      "handwrite": "手書き",
+      "pop": "ポップ",
+      "bitmap": "ビットマップ",
+      "stencil": "ステンシル"
+    },
+    {
+      "monospace": "等幅"
+    },
+    {
+      "geometric": "幾何的",
+      "organic": "有機的"
+    },
+    {
+      "angular": "角",
+      "rounded": "丸"
+    },
+    {
+      "ink": "墨溜まり"
+    },
+    {
+      "parody": "パロディ"
+    },
+    {
+      "gag": "ギャグ",
+      "horror": "ホラー",
+      "strange": "奇妙",
+      "youth": "青春"
+    }
+  ],
+  "fonts": [
+    {
+      "id": "kaisotai_next",
+      "name": "廻想体 ネクスト ユーピー（B）",
+      "types": [
+        "otf",
+        "ttf"
+      ],
+      "weight": 7,
+      "letters": [
+        "hira",
+        "kata",
+        "kata_half",
+        "kanji",
+        "jis1",
+        "alphabet",
+        "alphabet_full",
+        "number",
+        "number_full"
+      ],
+      "tags": [
+        "sans_serif",
+        "geometric",
+        "angular"
+      ],
+      "desc": "「まるこいあす」は、漫画/アニメ「恋する小惑星」のロゴを参考して制作しました。下辺と上部で横線が揃う、直線的だけど丸みのあるフォントです。「小惑星」にちなみ、小惑星を表す天文記号も収録しています。"
+    },
+    {
+      "id": "marukoias_alpha",
+      "name": "まるこいあすα",
+      "types": [
+        "ttf"
+      ],
+      "weight": 3,
+      "letters": [
+        "hira",
+        "kata",
+        "kata_half",
+        "kanji",
+        "alphabet",
+        "alphabet_full",
+        "number",
+        "number_full"
+      ],
+      "tags": [
+        "fantasy",
+        "geometric",
+        "parody"
+      ]
+    },
+    {
+      "id": "hangyaku" ,
+      "name": "叛逆明朝",
+      "types": [
+        "ttf"
+      ],
+      "weight": 5,
+      "letters": [
+        "hira",
+        "kata",
+        "kata_half",
+        "kanji",
+        "alphabet",
+        "alphabet_full",
+        "number",
+        "number_full"
+      ],
+      "tags": [
+        "fantasy",
+        "serif",
+        "strange",
+        "parody"
+      ]
+    },
+    {
+      "id": "soukou_mincho",
+      "name": "装甲明朝",
+      "types": [
+        "ttf"
+      ],
+      "weight": 7,
+      "letters": [
+        "hira",
+        "kata",
+        "kata_half",
+        "kanji",
+        "alphabet",
+        "alphabet_full",
+        "number",
+        "number_full"
+      ],
+      "tags": [
+        "serif",
+        "stencil",
+        "ink"
+      ],
+      "desc": "横線が極細のステンシル体風の見出し向け明朝体です。\n少し劣化したラフな雰囲気に処理いたしました。\nミリタリーな雰囲気にも、男らしい格好良さにも\nマッチするようにと考えました。"
+    }
+  ]
+}

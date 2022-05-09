@@ -1,0 +1,127 @@
+{
+  "$defs": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "ttf",
+        "otf"
+      ]
+    },
+    "letter": {
+      "type": "string",
+      "enum": [
+        "hira",
+        "kata",
+        "kata_half",
+        "kanji",
+        "jis1",
+        "jis2",
+        "alphabet",
+        "alphabet_full",
+        "number",
+        "number_full"
+      ]
+    },
+    "tag": {
+      "type": "string",
+      "enum": [
+        "sans_serif",
+        "serif",
+        "typos",
+        "cursive",
+        "fantasy",
+        "handwrite",
+        "pop",
+        "bitmap",
+        "stencil",
+        "parody",
+        "geometric",
+        "organic",
+        "angular",
+        "rounded",
+        "ink",
+        "monospace",
+        "gag",
+        "horror",
+        "strange",
+        "youth"
+      ]
+    }
+  },
+  "properties": {
+    "types": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "letters": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      }
+    },
+    "fonts": {
+      "type": "array",
+      "items":{
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/type"
+            },
+            "uniqueItems": true
+          },
+          "weight": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9
+          },
+          "letters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/letter"
+            },
+            "uniqueItems": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/tag"
+            },
+            "uniqueItems": true
+          },
+          "desc": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "types",
+          "weight",
+          "letters",
+          "tags"
+        ]
+      }
+    },
+    "$schema": {"type":"string"}
+  },
+  "additionalProperties":false
+}
