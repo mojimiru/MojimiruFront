@@ -29,10 +29,10 @@ const reloadFont = (text:string) => {
 
   color.value = 'gray'
   console.log('fontsize.value')
-  const fontURL = `https://mojimiru.pythonanywhere.com?font=${props.fontId}&text=${charsURI}`
+  const fontURL = `https://mojimiru.pythonanywhere.com?font=${props.fontId}&text=${charsURI}`.replace(/\(/g, '%28').replace(/\)/g, '%29')
   const fontFace = new FontFace(
     props.fontId,
-    `url(${fontURL})`
+    `url(${fontURL}) format('woff2')`
   )
   fontFace.load().then(loadedFace => {
     document.fonts.add(loadedFace)
