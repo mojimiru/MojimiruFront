@@ -38,20 +38,18 @@ const activeContent = ref('ParaGlyph')
 const fontlist = ref(null)
 const drawer = ref(false)
 const change = () => {
-  fontlist.value.reflesh()
+  fontlist.value?.reflesh()
 }
 
 const tagMap = Object.fromEntries(fontJson.tags.flatMap(Object.entries))
 
 const selectedTags = ref(fontJson.tags.map(() => []))
 
-let inputElement = null
-let cursor = null
+let cursor:HTMLElement|null = null
 
 watch(activeContent, (newvalue:string) => { updateSuffix(newvalue) })
 
 onMounted(() => {
-  inputElement = document.querySelector('#input input')
   cursor = document.getElementById('cursor')
   updateSuffix(activeContent.value)
 })
@@ -59,16 +57,19 @@ onMounted(() => {
 function updateSuffix (text:string) {
   const width = getTextWidth(text, '1.5rem sans-serif')
   console.log(width)
-  cursor.style.left = width + 25 + 'px'
+  if (cursor) cursor.style.left = width + 25 + 'px'
 }
 
 const getTextWidth = (text:string, font:string) => {
   // re-use canvas object for better performance
-  const canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement('canvas'))
+  const canvas:HTMLCanvasElement = getTextWidth.canvas || (getTextWidth.canvas = document.createElement('canvas'))
   const context = canvas.getContext('2d')
-  context.font = font
-  const metrics = context.measureText(text)
-  return metrics.width
+  if (context) {
+    context.font = font
+    const metrics = context.measureText(text)
+    return metrics.width
+  }
+  return 0
 }
 </script>
 

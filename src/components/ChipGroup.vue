@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from '@vue/reactivity'
+import { ref } from '@vue/reactivity'
 import { defineProps, defineEmits, watch } from 'vue'
 
 const props = defineProps<{
