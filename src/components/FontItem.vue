@@ -51,21 +51,21 @@ defineExpose({ reloadFont })
 </script>
 
 <template>
-  <q-card class="column justify-end full-height">
+  <q-card class="column justify-end full-height" square>
       <q-space/>
       <q-card-section align="center" class="q-pa-sm col-auto">
         <pre :id="fontId" :style="`white-space: pre-wrap; font-size: ${fontsize}px; color:${color}; font-family: '${fontId}'`">{{ content }}</pre>
       </q-card-section>
       <q-space/>
-      <q-card-section align="right" class="q-pa-none q-pr-md" style="bottom: 0">
+      <q-card-section align="right" class="q-pa-none q-pr-md text-grey-8" style="bottom: 0">
         <q-space/>
         {{fontData.name}}
       </q-card-section>
-      <q-card-section  align="right" class="q-pa-xs" style="bottom: 0">
+      <!-- <q-card-section  align="right" class="q-pa-xs" style="bottom: 0">
         <q-chip v-for="a in fontData.tags" :key="a" dense size="0.8rem">
           {{tagMap[a]}}
         </q-chip>
-      </q-card-section>
+      </q-card-section> -->
   </q-card>
 </template>
 
