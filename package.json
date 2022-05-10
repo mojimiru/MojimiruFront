@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@mdi/font": "5.9.55",
+    "@quasar/extras": "^1.0.0",
+    "quasar": "^2.0.0",
     "roboto-fontface": "*",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
@@ -36,7 +38,7 @@
     "sass": "^1.38.0",
     "sass-loader": "^12.0.0",
     "typescript": "~4.5.5",
-    "vue-cli-plugin-vuetify": "~2.4.8",
+    "vue-cli-plugin-quasar": "~5.0.1",
     "vuetify-loader": "^2.0.0-alpha.0"
   },
   "eslintConfig": {

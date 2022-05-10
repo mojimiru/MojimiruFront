@@ -51,31 +51,28 @@ defineExpose({ reloadFont })
 </script>
 
 <template>
-  <v-card class="d-flex flex-column align-center" height="100%">
-    <v-card-title class="pt-0 pb-0 mb-0">
-      <!-- <v-spacer/> -->
-      <p>
-        <pre :id="fontId" class="pt-4" :style="`line-height:1; white-space: pre-wrap; font-size: ${fontsize}px; color:${color}; font-family: '${fontId}'`">{{ content }}</pre>
-      </p>
-      <!-- <v-spacer/> -->
-    </v-card-title>
-    <v-spacer/>
-    <v-card-text class="text-caption align-self-end d-flex flex-column pt-1 pb-0" style="bottom: 0">
-      <v-spacer/>
-      {{fontData.name}}
-    </v-card-text>
-    <v-card-text class="text-caption align-self-end d-flex flex-column" style="bottom: 0">
-      <v-row>
-        <v-chip v-for="a in fontData.tags" :key="a">
+  <q-card class="column justify-end full-height">
+      <q-space/>
+      <q-card-section align="center" class="q-pa-sm col-auto">
+        <pre :id="fontId" :style="`white-space: pre-wrap; font-size: ${fontsize}px; color:${color}; font-family: '${fontId}'`">{{ content }}</pre>
+      </q-card-section>
+      <q-space/>
+      <q-card-section align="right" class="q-pa-none q-pr-md" style="bottom: 0">
+        <q-space/>
+        {{fontData.name}}
+      </q-card-section>
+      <q-card-section  align="right" class="q-pa-xs" style="bottom: 0">
+        <q-chip v-for="a in fontData.tags" :key="a" dense size="0.8rem">
           {{tagMap[a]}}
-        </v-chip>
-      </v-row>
-    </v-card-text>
-  </v-card>
+        </q-chip>
+      </q-card-section>
+  </q-card>
 </template>
 
 <style>
 pre{
   font-family:serif;
+  padding: 0;
+  margin: 0;
 }
 </style>

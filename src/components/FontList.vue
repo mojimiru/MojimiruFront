@@ -27,39 +27,35 @@ const tagMap = Object.fromEntries(fontJson.tags.flatMap(Object.entries))
 
 const includeMap = computed(() => [...fonts.keys()].map(includes))
 const tagGroups = fontJson.tags.map(tags => Object.keys(tags))
-const selectedTags = ref(tagGroups.map(() => []))
-const includes = (index:number) => selectedTags.value.every((tags, i) => !tags.length || tags.some(tag => fonts[index].tags.includes(tagGroups[i][tag])))
+const selectedTags = ref(tagGroups.map(l => (Object.fromEntries(l.map(v => [v, false])))))
+const includes = (index:number) => selectedTags.value.every(tags => !Object.values(tags).some(Boolean) || fonts[index].tags.some(tag => tags[tag]))
 </script>
 
 <template>
-  <v-container fluid @click="()=>{}">
-    <v-textarea
-    label="試したい単語/文章を入力"
-    v-model="activeContent"
-    @change="reflesh"
-    dense
-    auto-grow
-    rows="1"
-    />
+  <div class="q-pa-md q-col-gutter-md" @click="()=>{}">
+    <div>
+      <q-input
+        v-model="activeContent"
+        filled
+        autogrow
+        @change="reflesh"
+      />
+    </div>
     <div v-for="(group, i) in tagGroups" :key="i">
-      <v-chip-group column multiple active-class="primary--text" v-model="selectedTags[i]">
-        <v-chip
+      <div>
+        <q-chip
           v-for="tag of group"
           :key="tag"
+          v-model:selected="selectedTags[i][tag]"
         >
           {{ fontJson.tags[i][tag] }}
-        </v-chip>
-      </v-chip-group>
+        </q-chip>
+      </div>
     </div>
-    <v-row dense>
+    <div class="q-col-gutter-md row items-stretch">
       <template v-for="(font, i) in fonts" :key="i">
-        <v-col
+        <div class="col-12 col-lg-3 col-md-4 col-sm-6 col-xs-12"
           v-show="includeMap[i]"
-          cols="12"
-          lg="3"
-          md="4"
-          sm="6"
-          xs="12"
         >
           <FontItem
           :ref="el => {if (el) fontRefs[i] = el}"
@@ -71,10 +67,10 @@ const includes = (index:number) => selectedTags.value.every((tags, i) => !tags.l
           :fontData="font"
           :tagMap="tagMap"
           />
-        </v-col>
+        </div>
       </template>
-    </v-row>
-  </v-container>
+    </div>
+  </div>
 </template>
 
 <style>

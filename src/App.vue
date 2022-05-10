@@ -1,21 +1,12 @@
 <template>
-  <v-app>
-    <v-main>
-      <router-view/>
-    </v-main>
-  </v-app>
+  <q-layout view="lHh Lpr lFf">
+    <q-page-container>
+      <FontList />
+    </q-page-container>
+  </q-layout>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'App',
-
-  data () {
-    return {
-      //
-    }
-  }
-})
+<script setup lang="ts">
+import { ref } from 'vue'
+import FontList from './components/FontList.vue'
 </script>
