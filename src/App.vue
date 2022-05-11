@@ -4,14 +4,14 @@
       <q-toolbar>
         <q-toolbar-title>
           <div id="input" class="row items-center">
-            <span id="cursor" class="text-transparent col-0">{{ activeContent }}<span class="white">|</span></span>
+            <span id="cursor" class="text-transparent col-0">{{ activeContent }}<span :class="$q.dark.mode?'text-white':'text-black'">|</span></span>
             <q-input :color="$q.dark.mode?'white':'black'" class="q-pa-sm col-12" dense v-model="activeContent" bg-color="transparent"
               @change="change" />
           </div>
         </q-toolbar-title>
         <q-btn dense :color="$q.dark.mode?'white':'black'" icon="filter_alt" class="q-mr-sm" @click="drawer = !drawer" outline></q-btn>
-        <q-btn dense :color="$q.dark.mode?'white':'black'" icon="question_mark" class="q-mr-sm" @click="questionDialog = true" outline></q-btn>
         <q-btn dense :color="$q.dark.mode?'white':'black'" :icon="$q.dark.mode?'dark_mode':'light_mode'" class="q-mr-sm" @click="$q.dark.toggle" outline></q-btn>
+        <q-btn dense :color="$q.dark.mode?'white':'black'" icon="question_mark" class="q-mr-sm" @click="questionDialog = true" outline></q-btn>
       </q-toolbar>
     </q-header>
     <q-page-container>
@@ -52,11 +52,6 @@ const tagMap = Object.fromEntries(fontJson.tags.flatMap(Object.entries))
 
 const selectedTags = ref(fontJson.tags.map(() => []))
 
-let cursor: HTMLElement | null = null
-
-onMounted(() => {
-  cursor = document.getElementById('cursor')
-})
 </script>
 
 <style>
