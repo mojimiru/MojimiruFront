@@ -55,6 +55,23 @@ const tagMap = Object.fromEntries(fontJson.tags.flatMap(Object.entries))
 
 const selectedTags = ref(fontJson.tags.map(() => []))
 
+onMounted(() => {
+  const speed = 100
+  const value = activeContent.value
+  value.split('').forEach((char, index) => {
+    setTimeout(() => {
+      activeContent.value = activeContent.value + char
+      change()
+    }, speed * index)
+  })
+
+  setTimeout(() => {
+    change()
+  }, speed * value.length)
+
+  activeContent.value = ''
+  change()
+})
 </script>
 
 <style>
