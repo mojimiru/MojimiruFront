@@ -30,5 +30,6 @@ watch(() => [...select.value], (currentValue, oldValue) => {
 <style scoped>
 .chip {
   margin-left: 0.3em;
+  margin-bottom: 0.5em;
 }
 </style>
