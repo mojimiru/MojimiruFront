@@ -18,9 +18,12 @@
       <FontList ref="fontlist" :text="activeContent" :selected="selectedTags" :tagMap="tagMap" />
       <q-dialog full-width v-model="drawer">
         <q-card class="q-pa-md">
-          <q-input class="q-pa-sm" :color="$q.dark.mode?'white':'black'" label="表示したい文章を入力" style="font-size: 1.2rem;" clearable
-            v-model="activeContent" outlined autogrow @change="change" />
-          <div v-for="(tags, i) in fontJson.tags" :key="i" class="q-pa-sm">
+          <div class="row items-start">
+            <q-input class="q-pa-sm grow" :color="$q.dark.mode?'white':'black'" label="表示したい文章を入力" style="font-size: 1.2rem;" clearable
+              v-model="activeContent" outlined autogrow @change="change" />
+            <q-btn :color="$q.dark.mode?'white':'black'" icon="close" flat round dense v-close-popup />
+          </div>
+          <div v-for="(tags, i) in fontJson.tags" :key="i" class="q-pa-sm col-auto">
             <ChipGroup v-model="selectedTags[i]"
               :options="Object.entries(tags).map(v => ({ value: v[0], label: v[1] }))">
             </ChipGroup>
@@ -70,6 +73,10 @@ const selectedTags = ref(fontJson.tags.map(() => []))
   font: 1.5rem sans-serif;
   position: absolute;
   padding: 10px 8px;
+}
+
+.grow{
+  flex-grow:100;
 }
 
 @keyframes flash {

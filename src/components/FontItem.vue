@@ -57,15 +57,15 @@ const focus = () => {
 
 <template>
   <q-card class="column justify-end full-height" square @click="focus">
+    <q-space/>
+    <q-card-section align="center" class="q-pa-sm col-auto">
+      <pre :id="fontId" :style="`white-space: pre-wrap; word-break:break-all; font-size: 30px; color:${color[$q.dark.mode?1:0]}; font-family: '${fontId}'`">{{ content }}</pre>
+    </q-card-section>
+    <q-space/>
+    <q-card-section align="right" :class="`q-pa-none q-pr-md text-grey-${$q.dark.mode?4:8}`" style="bottom: 0">
       <q-space/>
-      <q-card-section align="center" class="q-pa-sm col-auto">
-        <pre :id="fontId" :style="`white-space: pre-wrap; word-break:break-all; font-size: 30px; color:${color[$q.dark.mode?1:0]}; font-family: '${fontId}'`">{{ content }}</pre>
-      </q-card-section>
-      <q-space/>
-      <q-card-section align="right" :class="`q-pa-none q-pr-md text-grey-${$q.dark.mode?4:8}`" style="bottom: 0">
-        <q-space/>
-        {{fontData.name}}
-      </q-card-section>
+      {{fontData.name}}
+    </q-card-section>
   </q-card>
 </template>
 

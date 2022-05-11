@@ -11,8 +11,10 @@ const props = defineProps<{
 
 <template>
   <q-card class="q-pa-md" style="width: 700px; max-width: 80vw;">
-    <q-card-section align="start" class="q-pa-sm col-auto">
-      <span class="title">{{fontData.name}}</span>
+    <q-card-section align="left" class="q-pa-sm col-12 row">
+      <div class="text-h6 title">{{fontData.name}}</div>
+      <q-space/>
+      <q-btn :color="$q.dark.mode?'white':'black'" icon="close" flat round dense v-close-popup />
     </q-card-section>
     <q-card-section align="center" class="q-pa-sm col-12">
       <pre :id="fontData.id" :style="`white-space: pre-wrap; word-break:break-all; font-size: ${fontsize*1.5}px; font-family: '${fontData.id}'`">{{ content }}</pre>
