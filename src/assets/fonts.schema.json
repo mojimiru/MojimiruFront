@@ -109,6 +109,9 @@
           },
           "desc": {
             "type": "string"
+          },
+          "url": {
+            "type": "string"
           }
         },
         "additionalProperties": false,
@@ -117,7 +120,8 @@
           "types",
           "weight",
           "letters",
-          "tags"
+          "tags",
+          "url"
         ]
       }
     },

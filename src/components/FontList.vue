@@ -3,6 +3,7 @@ import { ref, computed } from '@vue/reactivity'
 import FontItem from '@/components/FontItem.vue'
 import { defineProps, defineExpose, onBeforeUpdate, onMounted } from 'vue'
 import * as fontJson from '@/assets/fonts.json'
+import FontDialog from './FontDialog.vue'
 
 const props = defineProps<{
   text:string
@@ -32,6 +33,13 @@ defineExpose({ reflesh })
 
 const includeMap = computed(() => [...fonts.keys()].map(includes))
 const includes = (index:number) => props.selected.every(tags => !tags.length || tags.some(tag => fonts[index].tags.includes(tag)))
+
+const focused = ref(false)
+const focusFont = ref(null)
+const focus = (font) => {
+  focusFont.value = font
+  focused.value = true
+}
 </script>
 
 <template>
@@ -50,10 +58,14 @@ const includes = (index:number) => props.selected.every(tags => !tags.length || 
           :fontId="font.id"
           :fontData="font"
           :tagMap="tagMap"
+          @focus="focus"
           />
         </div>
       </template>
     </div>
+    <q-dialog v-model="focused">
+      <FontDialog :fontData="focusFont" :content="text" :fontsize="30" :tagMap="tagMap" />
+    </q-dialog>
   </div>
 </template>
 
