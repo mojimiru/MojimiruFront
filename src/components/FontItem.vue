@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { ref } from '@vue/reactivity'
 import { defineProps, defineEmits, defineExpose, watch, toRefs } from 'vue'
+import { useQuasar } from 'quasar'
+
+const $q = useQuasar()
+
 const props = defineProps<{
   content: string,
   fontId: string;
@@ -8,10 +12,10 @@ const props = defineProps<{
   width: number;
   height: number;
   show:boolean;
-  tagMap:{[key:string]:string}
+  tagMap:{[key:string]:string};
 }>()
 
-const color = ref('black')
+const color = ref(['black', 'white'])
 // let span:HTMLElement | null = null
 
 const chars = new Set()
@@ -26,7 +30,7 @@ const reloadFont = (text:string) => {
   newChars.forEach(c => chars.add(c))
   const charsURI = encodeURIComponent(newChars.join(''))
 
-  color.value = 'gray'
+  color.value = ['gray', 'gray']
   const fontURL = `https://mojimiru.pythonanywhere.com?font=${props.fontId}&text=${charsURI}`.replace(/\(/g, '%28').replace(/\)/g, '%29')
   const fontFace = new FontFace(
     props.fontId,
@@ -34,9 +38,9 @@ const reloadFont = (text:string) => {
   )
   fontFace.load().then(loadedFace => {
     document.fonts.add(loadedFace)
-    color.value = 'black'
+    color.value = ['black', 'white']
   }).catch(e => {
-    color.value = 'black'
+    color.value = ['black', 'white']
     console.error(e)
   })
 }
@@ -55,10 +59,10 @@ const focus = () => {
   <q-card class="column justify-end full-height" square @click="focus">
       <q-space/>
       <q-card-section align="center" class="q-pa-sm col-auto">
-        <pre :id="fontId" :style="`white-space: pre-wrap; word-break:break-all; font-size: 30px; color:${color}; font-family: '${fontId}'`">{{ content }}</pre>
+        <pre :id="fontId" :style="`white-space: pre-wrap; word-break:break-all; font-size: 30px; color:${color[$q.dark.mode?1:0]}; font-family: '${fontId}'`">{{ content }}</pre>
       </q-card-section>
       <q-space/>
-      <q-card-section align="right" class="q-pa-none q-pr-md text-grey-8" style="bottom: 0">
+      <q-card-section align="right" :class="`q-pa-none q-pr-md text-grey-${$q.dark.mode?4:8}`" style="bottom: 0">
         <q-space/>
         {{fontData.name}}
       </q-card-section>

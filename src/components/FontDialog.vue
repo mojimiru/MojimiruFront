@@ -15,18 +15,18 @@ const props = defineProps<{
       <span class="title">{{fontData.name}}</span>
     </q-card-section>
     <q-card-section align="center" class="q-pa-sm col-12">
-      <pre :id="fontData.id" :style="`white-space: pre-wrap; word-break:break-all; font-size: ${fontsize*1.5}px; color:black; font-family: '${fontData.id}'`">{{ content }}</pre>
+      <pre :id="fontData.id" :style="`white-space: pre-wrap; word-break:break-all; font-size: ${fontsize*1.5}px; font-family: '${fontData.id}'`">{{ content }}</pre>
     </q-card-section>
     <q-card-section  align="left" v-if="fontData.desc" class="q-pa-md" style="bottom: 0">
       <pre style="white-space: pre-wrap; font-family: sans-sarif;">{{fontData.desc}}</pre>
     </q-card-section>
     <q-card-section  align="right" class="q-pa-xs" style="bottom: 0">
-      <q-chip v-for="a in fontData.tags" :key="a" dense size="0.8rem">
+      <q-chip v-for="a in fontData.tags" :key="a" dense size="0.9rem" :outline="$q.dark.mode">
         {{tagMap[a]}}
       </q-chip>
     </q-card-section>
     <q-card-actions vertical align="center">
-      <q-btn color="black" text-color="white" unelevated :href="fontData.url" target="_blank" label="配布ページを開く"><q-icon name="navigate_next"/></q-btn>
+      <q-btn :color="$q.dark.mode?'white':'black'" :text-color="$q.dark.mode?'black':'white'" unelevated :href="fontData.url" target="_blank" label="配布ページを開く"><q-icon name="navigate_next"/></q-btn>
   </q-card-actions>
 </q-card>
 </template>
