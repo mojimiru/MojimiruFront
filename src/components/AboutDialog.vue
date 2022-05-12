@@ -7,7 +7,7 @@
     </q-card-section>
     <q-separator/>
     <q-card-section align="left" class="q-pa-md col-12">
-      <pre style="white-space: pre-wrap; font-family: sans-sarif;">ぱらぐりふ-ParaGlyph-は日本語対応の商用利用可能なフォントだけを集めたフォント比較サイトです。
+      <pre style="white-space: pre-wrap; font-family: sans-sarif;">ぱらぐりふ-ParaGlyph-は 日本語OK 商用OK なフォント試し書きサイトです。
 画面上部の入力欄に好きな文字を入れるとそれぞれのフォントで表示されます。
 気に入ったフォントがあればクリックして、配布ページからダウンロードしてくださいね！</pre>
     </q-card-section>
