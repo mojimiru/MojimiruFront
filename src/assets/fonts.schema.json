@@ -7,21 +7,6 @@
         "otf"
       ]
     },
-    "letter": {
-      "type": "string",
-      "enum": [
-        "hira",
-        "kata",
-        "kata_half",
-        "kanji",
-        "jis1",
-        "jis2",
-        "alphabet",
-        "alphabet_full",
-        "number",
-        "number_full"
-      ]
-    },
     "tag": {
       "type": "string",
       "enum": [
@@ -50,12 +35,6 @@
   },
   "properties": {
     "types": {
-      "type": "object",
-      "additionalProperties": {
-        "type": "string"
-      }
-    },
-    "letters": {
       "type": "object",
       "additionalProperties": {
         "type": "string"
@@ -93,13 +72,6 @@
             "minimum": 1,
             "maximum": 9
           },
-          "letters": {
-            "type": "array",
-            "items": {
-              "$ref": "#/$defs/letter"
-            },
-            "uniqueItems": true
-          },
           "tags": {
             "type": "array",
             "items": {
@@ -119,7 +91,6 @@
           "name",
           "types",
           "weight",
-          "letters",
           "tags",
           "url"
         ]

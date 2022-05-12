@@ -4,18 +4,6 @@
     "ttf": "TTF",
     "otf": "OTF"
   },
-  "letters": {
-    "hira": "ひらがな",
-    "kata": "カタカナ",
-    "kata_half": "ｶﾀｶﾅ",
-    "kanji": "漢字",
-    "jis1": "JIS第1水準",
-    "jis2": "JIS第2水準",
-    "alphabet": "ABC",
-    "alphabet_full": "ＡＢＣ",
-    "number": "123",
-    "number_full": "１２３"
-  },
   "tags": [
     {
       "sans_serif": "ゴシック",
@@ -61,17 +49,6 @@
         "ttf"
       ],
       "weight": 7,
-      "letters": [
-        "hira",
-        "kata",
-        "kata_half",
-        "kanji",
-        "jis1",
-        "alphabet",
-        "alphabet_full",
-        "number",
-        "number_full"
-      ],
       "tags": [
         "sans_serif",
         "geometric",
@@ -87,16 +64,6 @@
         "ttf"
       ],
       "weight": 3,
-      "letters": [
-        "hira",
-        "kata",
-        "kata_half",
-        "kanji",
-        "alphabet",
-        "alphabet_full",
-        "number",
-        "number_full"
-      ],
       "tags": [
         "fantasy",
         "geometric",
@@ -112,16 +79,6 @@
         "ttf"
       ],
       "weight": 5,
-      "letters": [
-        "hira",
-        "kata",
-        "kata_half",
-        "kanji",
-        "alphabet",
-        "alphabet_full",
-        "number",
-        "number_full"
-      ],
       "tags": [
         "fantasy",
         "serif",
@@ -138,16 +95,6 @@
         "ttf"
       ],
       "weight": 7,
-      "letters": [
-        "hira",
-        "kata",
-        "kata_half",
-        "kanji",
-        "alphabet",
-        "alphabet_full",
-        "number",
-        "number_full"
-      ],
       "tags": [
         "serif",
         "stencil",
