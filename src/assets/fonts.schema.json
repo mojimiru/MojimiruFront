@@ -90,7 +90,6 @@
         "required": [
           "name",
           "types",
-          "weight",
           "tags",
           "url"
         ]
