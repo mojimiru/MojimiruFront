@@ -69,9 +69,9 @@ const focus = () => {
   </q-card>
 </template>
 
-<style>
+<style scoped>
 pre{
-  font-family:'AND' serif;
+  /* writing-mode: vertical-rl; */
   padding: 0;
   margin: 0;
 }
