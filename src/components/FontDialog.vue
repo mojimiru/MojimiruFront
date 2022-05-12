@@ -17,7 +17,7 @@ const props = defineProps<{
       <q-btn :color="$q.dark.mode?'white':'black'" icon="close" flat round dense v-close-popup />
     </q-card-section>
     <q-card-section align="center" class="q-pa-sm col-12">
-      <pre :id="fontData.id" :style="`white-space: pre-wrap; word-break:break-all; font-size: ${fontsize*1.5}px; font-family: '${fontData.id}'`">{{ content }}</pre>
+      <pre :id="fontData.id" :style="`white-space: pre-wrap; word-break:break-all; font-size: ${fontsize*1.5}px; font-family: '${fontData.id}','AND'`">{{ content }}</pre>
     </q-card-section>
     <q-card-section  align="left" v-if="fontData.desc" class="q-pa-md" style="bottom: 0">
       <pre style="white-space: pre-wrap; font-family: sans-sarif;">{{fontData.desc}}</pre>
