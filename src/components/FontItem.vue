@@ -59,7 +59,7 @@ const focus = () => {
   <q-card class="column justify-end full-height" square @click="focus">
     <q-space/>
     <q-card-section align="center" class="q-pa-sm col-auto">
-      <pre :id="fontId" :style="`white-space: pre-wrap; word-break:break-all; font-size: 30px; color:${color[$q.dark.mode?1:0]}; font-family: '${fontId}'`">{{ content }}</pre>
+      <pre :id="fontId" :style="`white-space: pre-wrap; word-break:break-all; font-size: 30px; color:${color[$q.dark.mode?1:0]}; font-family: '${fontId}','AND'`">{{ content }}</pre>
     </q-card-section>
     <q-space/>
     <q-card-section align="right" :class="`q-pa-none q-pr-md text-grey-${$q.dark.mode?4:8}`" style="bottom: 0">
@@ -71,7 +71,7 @@ const focus = () => {
 
 <style>
 pre{
-  font-family:serif;
+  font-family:'AND' serif;
   padding: 0;
   margin: 0;
 }

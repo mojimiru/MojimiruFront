@@ -1,3 +1,8 @@
 @import './quasar.variables.scss';
 @import '~quasar-styl';
 // @import '~quasar-addon-styl';
+
+@font-face {
+  font-family: 'AND';
+  src: url('~@/assets/AND-Regular.otf') format('opentype');
+}
