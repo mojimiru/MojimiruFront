@@ -1,7 +1,12 @@
+<script setup lang="ts">
+import ParaglyphIcon from './ParaglyphIcon.vue'
+</script>
+
 <template>
   <q-card class="q-pa-md" style="width: 700px; max-width: 80vw;">
     <q-card-section align="left" class="q-pa-sm col-12 row">
       <span class="text-h5">
+        <q-avatar square size="2rem"><ParaglyphIcon/></q-avatar>
         ぱらぐりふについて
       </span>
     </q-card-section>

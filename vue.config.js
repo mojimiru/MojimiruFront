@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: '/MojimiruFront',
+  publicPath: '/paraglyph',
   outputDir: 'dist',
 
   pluginOptions: {

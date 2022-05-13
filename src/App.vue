@@ -5,6 +5,7 @@ import FontList from './components/FontList.vue'
 import * as fontJson from '@/assets/fonts.json'
 import ChipGroup from './components/ChipGroup.vue'
 import AboutDialog from './components/AboutDialog.vue'
+import ParaglyphIcon from './components/ParaglyphIcon.vue'
 import { useQuasar } from 'quasar'
 
 const $q = useQuasar()
@@ -44,9 +45,17 @@ onMounted(() => {
   <q-layout view="lHh Lpr lFf">
     <q-header :class="`bg-${$q.dark.mode?'black':'white'}`">
       <q-toolbar>
+        <q-btn flat round @click="about = true">
+          <q-avatar square ><ParaglyphIcon/></q-avatar>
+        </q-btn>
         <q-toolbar-title>
           <div id="input" class="row items-center">
-            <span id="cursor" class="text-transparent col-0">{{ activeContent }}<span :class="$q.dark.mode?'text-white':'text-black'">|</span></span>
+            <span id="cursor" class="col-0">
+              <span class="text-transparent">
+                {{ activeContent }}
+              </span>
+              <q-icon name="edit" :class="$q.dark.mode?'text-white':'text-black'" size="1.5rem"/>
+            </span>
             <q-input :color="$q.dark.mode?'white':'black'" class="q-pa-sm col-12" dense v-model="activeContent" bg-color="transparent"
               @change="change" />
           </div>
@@ -87,29 +96,20 @@ onMounted(() => {
 #input input {
   font-size: 1.5rem;
   font-family: sans-serif;
-  caret-color: transparent;
+  /* caret-color: transparent; */
 }
 
 #cursor {
-  animation: flash 1s step-end infinite;
   font: 1.5rem sans-serif;
   position: absolute;
   padding: 10px 8px;
 }
 
-.grow{
-  flex-grow:100;
+#cursorsuffix{
+  font-size: 1rem;
 }
 
-@keyframes flash {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
+.grow{
+  flex-grow:100;
 }
 </style>
